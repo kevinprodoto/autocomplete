@@ -1,3 +1,18 @@
+const search = document.querySelector('.autocomplete__sector');
+const searchItems = search.querySelectorAll('.autocomplete__sector-item');
+const searchData = [];
+const results = document.querySelector('.autocomplete__results');
+const input = document.querySelector('.autocomplete__input');
+async function getRepoData(entry) {
+  const url = 'https://api.github.com/search/repositories?q=';
+  const data = await (await (await fetch(`${url}${entry}`)).json()).items.slice(
+    0,
+    5,
+  );
+  search.style.display = 'block';
+
+  return data;
+}
 const debounce = (fn, delay) => {
   let isCalled = false;
   let timeout;
@@ -18,26 +33,8 @@ const debounce = (fn, delay) => {
     }
   };
 };
-
-const search = document.querySelector('.autocomplete__sector');
-const searchItems = search.querySelectorAll('.autocomplete__sector-item');
-const searchData = [];
-const results = document.querySelector('.autocomplete__results');
-const input = document.querySelector('.autocomplete__input');
-async function getRepoData(entry) {
-  const url = 'https://api.github.com/search/repositories?q=';
-  const data = await (await (await fetch(`${url}${entry}`)).json()).items.slice(
-    0,
-    5,
-  );
-  search.style.display = 'block';
-
-  return data;
-}
-
 async function setRepoData(entry) {
   const dataReady = await getRepoData(entry);
-
   dataReady.forEach((item, i) => {
     searchData[i] = item;
     const name = searchItems[i].querySelector('.autocomplete__name-owner');
@@ -47,7 +44,6 @@ async function setRepoData(entry) {
   });
 }
 const debSet = debounce(setRepoData, 500);
-
 input.oninput = async (e) => {
   if (e.target.value === '') search.style.display = 'none';
   await debSet(e.target.value);
