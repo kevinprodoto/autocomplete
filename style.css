@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: cadetblue;
+  color: white;
+}
+.autocomplete {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin: auto;
+}
+.autocomplete__main {
+  width: 100%;  
+}
+.autocomplete__input {
+  width: 100%;
+  outline: none;
+  height: 50px;
+  background-color: cadetblue;
+  border: 0;
+  border-bottom: 2px solid white;
+  font-size: 24px;
+  color: brown;
+}
+.autocomplete__sector {
+  display: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-size: 20px;
+}
+
+.autocomplete__sector-item {
+  cursor: pointer;
+  padding: 0 16px;
+  border-bottom: 1px solid #aaaa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.autocomplete__sector-item:hover {
+  background: #505a6e;
+}
+
+.autocomplete__sector-item:last-child {
+  border-bottom: 0px;
+}
+
+.autocomplete__sector-item div {
+  padding: 16px 0 0 0;
+}
+.autocomplete__results {
+  margin-top: 24px;
+  font-size: 20px;
+}
+
+.autocomplete__results-title {
+  padding: 0 16px;
+  display: none;
+  font-size: 20px;
+}
+
+.autocomplete__results-item {
+  cursor: pointer;
+  border-bottom: 1px solid #aaaa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 16px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.autocomplete__results-item:hover {
+  background: #505a6e;
+}
+
+.autocomplete__results-item:last-child {
+  border-bottom: 0px;
+}
+
+.autocomplete__results-item div {
+  padding: 16px 0 0 0;
+}
+
+.autocomplete__results-item div:last-child {
+  margin-left: 16px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+
+.autocomplete__name {
+  font-size: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+
+.autocomplete__stars {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1;
+          flex: 0 1;
+}
+
+.autocomplete__footer {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
