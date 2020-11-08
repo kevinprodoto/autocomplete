@@ -5,12 +5,8 @@ const results = document.querySelector('.autocomplete__results');
 const input = document.querySelector('.autocomplete__input');
 async function getRepoData(entry) {
   const url = 'https://api.github.com/search/repositories?q=';
-  const data = await (await (await fetch(`${url}${entry}`)).json()).items.slice(
-    0,
-    5,
-  );
+  const data = await (await (await fetch(`${url}${entry}`)).json()).items.slice(0,5);
   search.style.display = 'block';
-
   return data;
 }
 const debounce = (fn, delay) => {
